@@ -1,4 +1,6 @@
 FROM debian:stretch-slim
+ENV TZ="Asia/Shanghai"
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ADD luaiconv.c /luaiconv.c
 ADD Makefile /Makefile
 RUN set -x &&\
